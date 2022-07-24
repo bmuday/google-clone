@@ -1,13 +1,13 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Results } from "./Results";
 
-export default Routes = () => (
+const RoutesComponent = () => (
   <div className="p-4">
-    <Switch>
+    <Routes>
       <Route exact path="/">
-        <Redirect to="/search" />
+        <Navigate to="/search" />
       </Route>
       <Route exact path="/search">
         <Results />
@@ -21,6 +21,8 @@ export default Routes = () => (
       <Route path="/videos">
         <Results />
       </Route>
-    </Switch>
+    </Routes>
   </div>
 );
+
+export default RoutesComponent;
