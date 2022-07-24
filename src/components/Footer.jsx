@@ -1,7 +1,7 @@
 import React from "react";
 
-const Footer = () => {
-  return <div>Footer</div>;
-};
-
-export default Footer;
+export default Footer = () => (
+  <div className="text-center p-10 mt-10 border-t dark:border-gray-700 border-gray-200 ">
+    © 2021 Goggl, Inc.
+  </div>
+);
