@@ -1,24 +1,17 @@
 import React, { createContext, useContext, useState } from "react";
 
 const StateContext = createContext();
-export const useStateContext = () => useContext(StateContext);
+const baseUrl = "https://example-data.draftbit.com";
 
 export const StateContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const baseUrl = "https://google-search1.p.rapidapi.com/google-search";
 
   const getResults = async (url) => {
     setLoading(true);
 
-    const res = await fetch(`${baseUrl}${url}`, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "google-search1.p.rapidapi.com",
-        "x-rapidapi-key": process.env.REACT_APP_API_KEY,
-      },
-    });
+    const res = await fetch(`${baseUrl}${url}`);
 
     const data = await res.json();
 
@@ -34,3 +27,5 @@ export const StateContextProvider = ({ children }) => {
     </StateContext.Provider>
   );
 };
+
+export const useStateContext = () => useContext(StateContext);
